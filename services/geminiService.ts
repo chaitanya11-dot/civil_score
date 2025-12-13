@@ -1,22 +1,17 @@
 
 import { GoogleGenAI, Chat } from "@google/genai";
 
-const API_KEY = process.env.API_KEY || process.env.GEMINI_API_KEY;
+const API_KEY = process.env.API_KEY;
 
-let ai: GoogleGenAI | null = null;
-
-if (API_KEY) {
-  ai = new GoogleGenAI({ apiKey: API_KEY });
-} else {
-  console.warn("GEMINI_API_KEY environment variable not set. AI features will be disabled.");
+if (!API_KEY) {
+  throw new Error("API_KEY environment variable not set");
 }
+
+const ai = new GoogleGenAI({ apiKey: API_KEY });
 
 let chat: Chat | null = null;
 
 const getChatInstance = (): Chat => {
-  if (!ai) {
-    throw new Error("Gemini API is not configured. Please set GEMINI_API_KEY environment variable.");
-  }
   if (!chat) {
     chat = ai.chats.create({
       model: 'gemini-2.5-flash',
@@ -41,9 +36,6 @@ export const sendMessageToBot = async (message: string): Promise<string> => {
 
 export const extractTextFromImage = async (base64ImageData: string, mimeType: string): Promise<string> => {
   try {
-    if (!ai) {
-      return "Error: Gemini API is not configured. Please set GEMINI_API_KEY environment variable.";
-    }
     const imagePart = {
       inlineData: {
         mimeType: mimeType,
