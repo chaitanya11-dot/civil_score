@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { User, Award, Shield, Flag, Activity, Scale, Settings, HelpCircle, LogOut, Briefcase, TrendingUp } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import ConfirmationModal from '../ConfirmationModal';
-import PoliceBadge from '../icons/PoliceBadge';
+import PoliceBadge from './PoliceBadge';
 
 interface SidebarProps {
   isOpen: boolean;

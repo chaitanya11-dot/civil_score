@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import Header from '../icons/Header';
-import Sidebar from '../icons/Sidebar';
+import Header from '../components/icons/Header';
+import Sidebar from '../components/icons/Sidebar';
 
 const MainLayout: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -22,4 +22,4 @@ const MainLayout: React.FC = () => {
   );
 };
 
-export { default } from '../../layout/MainLayout';
+export default MainLayout;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Bell, Search, ArrowLeft, ArrowRight, Menu } from 'lucide-react';
-import ShieldCheck from '../icons/ShieldCheck';
+import ShieldCheck from './ShieldCheck';
 
 interface HeaderProps {
   onMenuClick: () => void;

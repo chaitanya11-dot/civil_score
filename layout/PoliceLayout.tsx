@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext';
-import PoliceBadge from '../icons/PoliceBadge';
+import { useAuth } from '../contexts/AuthContext';
+import PoliceBadge from '../components/icons/PoliceBadge';
 import { LogOut, ArrowLeft, ArrowRight } from 'lucide-react';
 
 const PoliceHeader: React.FC = () => {
@@ -51,7 +51,6 @@ const PoliceHeader: React.FC = () => {
   );
 };
 
-
 const PoliceLayout: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-100 text-gray-800">
@@ -65,4 +64,4 @@ const PoliceLayout: React.FC = () => {
   );
 };
 
-export { default } from '../../layout/PoliceLayout';
+export default PoliceLayout;
